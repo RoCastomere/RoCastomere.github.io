@@ -4,6 +4,19 @@
   
   
   <entry>
+    <title>怎么使用markdown + 刷新blog</title>
+    <link href="undefined2020/04/04/%E6%80%8E%E4%B9%88%E4%BD%BF%E7%94%A8markdown-%E5%88%B7%E6%96%B0blog/"/>
+    <url>2020/04/04/%E6%80%8E%E4%B9%88%E4%BD%BF%E7%94%A8markdown-%E5%88%B7%E6%96%B0blog/</url>
+    
+    <content type="html"><![CDATA[<ul><li><h1 id="learn-markdown"><a href="#learn-markdown" class="headerlink" title="learn markdown"></a>learn markdown</h1></li></ul><pre><code># 标题,共有6级标题**这是加粗的文字***这是倾斜的文字*`***这是斜体加粗的文字***~~这是加删除线的文字~~&gt; 是引用 有无限层 &quot;&gt;&gt;&gt;&gt;&quot;这种--- or *** 是分割线![图片alt](图片地址 &#39;&#39;图片title&#39;&#39;)图片alt就是显示在图片下面的文字，相当于对图片内容的解释。图片title是图片的标题，当鼠标移到图片上时显示的内容。title可加可不加(需要图床)[超链接名](超链接地址 &quot;超链接title&quot;)title可加可不加无序列表- 列表内容+ 列表内容* 列表内容注意：- + * 跟内容之间都要有一个空格，无序列表用 - + * 任何一种都可以有序列表1. 列表内容2. 列表内容3. 列表内容注意：序号跟内容之间要有空格列表嵌套上一级和下一级之间敲三个空格即可eg :- xx   - xx      - xx 表头|表头|表头---|:--:|---:内容|内容|内容内容|内容|内容第二行分割表头和内容。- 有一个就行，为了对齐，多加了几个文字默认居左-两边加：表示文字居中-右边加：表示文字居右注：原生的语法两边都要用 | 包起来。此处省略单行代码：代码之间分别用一个反引号包起来`代码内容`代码块：代码之间分别用三个反引号包起来，且两边的反引号单独占一行(``` 这个位置输入你的代码语言，进行高亮提示注意没有小括号，为防转移使用(```流程图，其实可以用图片做</code></pre><hr><ul><li><h1 id="Terminal内执行下面语句"><a href="#Terminal内执行下面语句" class="headerlink" title="Terminal内执行下面语句"></a>Terminal内执行下面语句</h1><pre><code class="aidl">hexo cleanhexo generatehexo server</code></pre></li></ul><pre><code>- #### 写博客本地预览```aidlhexo new &quot;new markdown file name&quot;hexo server</code></pre><ul><li><h4 id="部署到远端"><a href="#部署到远端" class="headerlink" title="部署到远端"></a>部署到远端</h4><pre><code class="aidl">hexo g   //生成网页hexo d  //部署到远端(github)</code></pre></li></ul>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Hello World</title>
     <link href="undefined2019/11/16/hello-world/"/>
     <url>2019/11/16/hello-world/</url>
