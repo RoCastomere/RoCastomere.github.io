@@ -134,6 +134,55 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/04/04/%E5%8D%81%E5%A4%A7%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/">
+        <p class="h4 index-header">十大排序算法</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">十大排序算法
+我们这里统一写由小到大排序
+
+1. 冒泡排序复杂度：O(n^2)
+算法：当相邻的两项a[i] &gt; a[j] 且 i &lt; j 时，交换相邻两项
+int n;
+int a[maxn];
+
+for(int i = n ; i &gt;= 1 ; i--){ // 判断结尾位置
+    for(int j = 2 ; j &lt;= i ; j++){ // 内部进行冒泡排序 
+        if(a[j-1] &gt; a[j]){
+            swap(a[j-1] , a[j]);
+        }
+    }
+}
+
+2. 选择排序复杂度：O(n^2)
+选择剩余元素中最小or最大的，和当前位置进行交换
+//maxn = 1e5 , inf = 由题意决定，这里当做1e18
+int n;
+int a[maxn];
+for(int i = 1 ; i &lt;= n ; i++){ //枚举需要被替换的位置
+    int id = -1;
+    int Min = inf;
+    for(int j = i ; j &lt;= n ; j++)</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-04&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2020/04/04/%E6%80%8E%E4%B9%88%E4%BD%BF%E7%94%A8markdown-%E5%88%B7%E6%96%B0blog/">
         <p class="h4 index-header">怎么使用markdown + 刷新blog</p>
         

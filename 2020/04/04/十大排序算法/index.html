@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  <title>十大排序算法 ~ Hexo</title>
+
+  <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"  >
+<link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"  >
+<link rel="stylesheet" href="/lib/mdbootstrap/css/mdb.min.css"  >
+<link rel="stylesheet" href="/lib/github-markdown/github-markdown.min.css"  >
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+
+
+  <link rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css"  >
+
+<link rel="stylesheet" href="/css/main.css"  >
+
+
+  <link rel="stylesheet" href="/lib/fancybox/jquery.fancybox.min.css"  >
+
+
+</head>
+
+
+<body>
+  <header style="height: 80vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Hexo</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">Archives</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">Categories</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">Tags</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">About</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+</nav>
+
+    <div class="view intro-2" id="background"
+         style="background: url('/img/night_lake.png')no-repeat center center;
+           background-size: cover;
+           background-attachment: fixed;">
+      <div class="full-bg-img">
+        <div class="mask rgba-black-light flex-center">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              <br>
+              
+                <p class="mt-3">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>&nbsp;
+                  星期六, 四月 4日 2020, 9:15 晚上
+                </p>
+              
+
+              <p>
+                
+                  
+                  &nbsp;<i class="far fa-chart-bar"></i>
+                  <span class="post-count">
+                    1.3k 字
+                  </span>&nbsp;
+                
+
+                
+                  
+                  &nbsp;<i class="far fa-clock"></i>
+                  <span class="post-count">
+                      5 分钟
+                  </span>&nbsp;
+                
+
+                
+                  <!-- 不蒜子统计文章PV -->
+                  
+                  &nbsp;<i class="far fa-eye" aria-hidden="true"></i>&nbsp;
+                  <span id="busuanzi_container_page_pv">
+                    <span id="busuanzi_value_page_pv"></span> 次
+                  </span>&nbsp;
+                
+              </p>
+            
+          </div>
+
+          
+            <div class="scroll-down-bar">
+              <i class="fas fa-angle-down scroll-down-arrow"></i>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="py-5 z-depth-3" id="board">
+        <div class="post-content mx-auto" id="post">
+          <div class="markdown-body">
+            <h1 id="十大排序算法"><a href="#十大排序算法" class="headerlink" title="十大排序算法"></a><strong>十大排序算法</strong></h1><hr>
+<p><strong><em>我们这里统一写由小到大排序</em></strong></p>
+<hr>
+<h3 id="1-冒泡排序"><a href="#1-冒泡排序" class="headerlink" title="1. 冒泡排序"></a>1. 冒泡排序</h3><p><strong>复杂度：O(n^2)</strong></p>
+<p>算法：当相邻的两项a[i] &gt; a[j] 且 i &lt; j 时，交换相邻两项</p>
+<pre><code class="C++">int n;
+int a[maxn];
+
+for(int i = n ; i &gt;= 1 ; i--){ // 判断结尾位置
+    for(int j = 2 ; j &lt;= i ; j++){ // 内部进行冒泡排序 
+        if(a[j-1] &gt; a[j]){
+            swap(a[j-1] , a[j]);
+        }
+    }
+}</code></pre>
+<hr>
+<h3 id="2-选择排序"><a href="#2-选择排序" class="headerlink" title="2. 选择排序"></a>2. 选择排序</h3><p><strong><em>复杂度：O(n^2)</em></strong></p>
+<p>选择剩余元素中最小or最大的，和当前位置进行交换</p>
+<pre><code class="C++">//maxn = 1e5 , inf = 由题意决定，这里当做1e18
+int n;
+int a[maxn];
+for(int i = 1 ; i &lt;= n ; i++){ //枚举需要被替换的位置
+    int id = -1;
+    int Min = inf;
+    for(int j = i ; j &lt;= n ; j++){ //枚举，找到被选择数字的下标
+        if(Min &gt; a[j]){
+            id = j;
+            Min = a[j]
+        }
+    }
+    swap(a[i] , a[id]); //交换
+}</code></pre>
+<hr>
+<h3 id="3-插入排序"><a href="#3-插入排序" class="headerlink" title="3. 插入排序"></a>3. 插入排序</h3><p><strong><em>复杂度：最好O(n)，最坏O(n^2)——倒序数组</em></strong></p>
+<p>构建已排序序列，在已排序中从后向前，找到位置并插入数据</p>
+<pre><code class="C++">int n;
+int a[maxn];
+for(int i = 1 ; i &lt;= n ; i++){
+    int id = i; 寻找的插入位置
+    for(int j = i-1 ; j &gt;= 1 ; j--){
+        if(a[i] &gt;= a[j]){
+        // 找到一个a[j] &lt;= a[j]，将a[i]放到它后面，退出循环
+            a[j+1] = a[i];
+            break;
+        } else {
+            a[j+1] = a[j]; // 比a[i] 大的向后挪
+        }
+    }
+
+}</code></pre>
+<hr>
+<h3 id="4-希尔排序"><a href="#4-希尔排序" class="headerlink" title="4. 希尔排序"></a>4. 希尔排序</h3><p><strong><em>时间复杂度：最坏O(n^2),最好O(n)</em></strong></p>
+<p>通过确定K个增量t1，t2…tk,对按增量划分的 子序列 进行插入排序</p>
+<p>(取出所有间隔tk-1的项，进行插入排序)</p>
+<pre><code class="C++">int n;
+int a[maxn];
+
+for(int gap = n/2 ; gap &gt; 0 ; gap /= 2){
+    //增量是gap，每次变为之前的 1/2
+    for(int i = gap ; i &lt;= len ; i++){
+        int x = a[i] , id = i;
+        for(int j = i ; j - gap &gt;= 0 &amp;&amp; x &lt;= a[j-gap] ; j -= gap , id = j){
+            a[j] = a[j-gap];
+        }
+        a[j] = x;
+    }
+}</code></pre>
+<hr>
+<h3 id="5-归并排序"><a href="#5-归并排序" class="headerlink" title="5. 归并排序"></a>5. 归并排序</h3><p><strong><em>时间复杂度O(nlogn)</em></strong></p>
+<p>每次对一段区间 一分为二，直到为区间长度为 1，每次向上有序合并区间 </p>
+<pre><code class="C++">int n;
+int a[maxn];
+void MergeSort(int l, int r, int len){ //初始传入 (1 , n , n) 
+    if(len &lt;= 1) return;
+    int mid = (l + r) &gt;&gt; 1;
+    MergeSort(l, mid, mid-l+1);
+    MergeSort(mid+1, r, r-mid);
+    int t[maxn] , cnt= 0;
+    int dl = mid-l+1 , dr = r-mid;
+    whle(dl &amp;&amp; dr){
+        int c1 = a[mid-dl+1] , c2 = a[r-dr+1];
+        if(c1 &lt;= c2){
+            t[++cnt] = c[mid-dl+1];
+            dl--;
+        } else {
+            t[++cnt] = c[r-dr+1];
+            dr--;
+        }
+    }
+    while(dl){
+        t[++cnt] = c[mid-dl+1];
+        dl--;
+    }
+    while(dr){
+        t[++cnt] = c[r-dr+1];
+        dr--;
+    }
+    for(int i = l , j = 1; i &lt;= r ; i++ , j++){
+        a[i] = t[j];
+    }
+}</code></pre>
+<hr>
+<h3 id="6-快速排序"><a href="#6-快速排序" class="headerlink" title="6. 快速排序"></a>6. 快速排序</h3><p><strong><em>时间复杂度：最慢O(n^2),最快O(nlogn)</em></strong></p>
+<p>一个区间，选择基准值，比它小的放前面，大的放后面</p>
+<p>然后递归实现，减小这种区间的大小</p>
+<pre><code class="C++">void quicksort(int arr[] , int i , int j){
+    if(i &gt; j)    return;
+    int mid = arr[j]; // 选择基准值
+    int l = i , r = j - 1; //基准值之外的区间
+    while(l &lt; r){
+        while(arr[l] &lt; mid &amp;&amp; l &lt; r) l++; // 左边区间比它小的忽略
+        while(arr[r] &gt;= mid &amp;&amp; l &lt; r) r--; // 右边比它大的忽略
+        swap(arr[l] , arr[r]); // 找到的不能忽略的两个值，交换
+    }
+    if(arr[l] &gt;= arr[j])    swap(arr[l] , arr[j]); // 看a[l] 这个位置和基准值比大小，并且交换
+    else l++;
+    //下层递归
+    if(l)    quicksort(arr , i , l - 1);
+    quicksort(arr , l + 1 , j);
+}</code></pre>
+<hr>
+<h3 id="7-堆排序"><a href="#7-堆排序" class="headerlink" title="7. 堆排序"></a>7. 堆排序</h3><p><strong><em>时间复杂度O(nlogn)</em></strong></p>
+<pre><code class="C++">int n , len;
+int a[maxn];
+void heapify(int i){
+    int rt = i, ls = i * 2 + 1, rs = i * 2 + 2;
+    if(ls &lt; len &amp;&amp; a[ls] &gt; a[rt]){
+        rt = rt;
+    }
+    if(rs &lt; len &amp;&amp; a[rs] &gt; a[rt]){
+        rs = rt;
+    }
+    if(rt != i){
+        swap(a[i] , a[rt]);
+        heapify(rt);
+    }
+}
+
+void Build(){
+    for(int i = n/2 ; i&gt;= 0 ; i--){
+        heapify(i); // 堆调整
+    }
+}
+
+
+void heapSort(){
+    Build();
+    len = n;
+    for(int i = n-1 ; i &gt; 0 ; i--){
+        swap(a[0] , a[i]);
+        len--;
+        heapify(0);
+    }
+}
+
+</code></pre>
+<hr>
+<h3 id="8-计数排序"><a href="#8-计数排序" class="headerlink" title="8. 计数排序"></a>8. 计数排序</h3><p><strong><em>时间复杂度O(n)</em></strong></p>
+<p>一种利用额外空间vis[]，对已知数组每个数 计数的方式，然后从小到大，线性输出</p>
+<p>要求排序有范围，让vis可以进行标记，如果数字超出vis标记，用map or 哈希方法，对应计数</p>
+<pre><code class="C++">int n;
+int vis[maxn];
+int a[maxn];
+for(int i = 1 ; i &lt;= n ; i++){
+    vis[a[i]]++;
+}
+int ans[maxn] , tot = 0;
+for(int i = 1 ; i &lt;= maxn ; i++){
+    while(vis[i]--){
+        ans[++tot] = i;
+    }
+}</code></pre>
+<hr>
+<h3 id="9-桶排序"><a href="#9-桶排序" class="headerlink" title="9. 桶排序"></a>9. 桶排序</h3><p><strong><em>时间复杂度：最坏O(n^2),最好O(n)</em></strong></p>
+<p>假设数据服从均匀分布，选一个定量数组当空桶，每个桶内排序，最后扫一遍数组</p>
+<p>实现方法：</p>
+<p>用d进制分桶，i次桶排排倒数第i位，对第i+1位桶排，每一个桶都是后i位有序的</p>
+<hr>
+<h3 id="10-基数排序"><a href="#10-基数排序" class="headerlink" title="10. 基数排序"></a>10. 基数排序</h3><p><strong><em>复杂度：O(nk) , k进制</em></strong></p>
+<p>基数排序是按照低位先排序，然后收集；</p>
+<p>再按照高位排序，然后再收集；</p>
+<p>依次类推，直到最高位。有时候有些属性是有优先级顺序的，先按低优先级排序，再按高优先级排序。最后的次序就是高优先级高的在前，高优先级相同的低优先级高的在前。</p>
+<hr>
+
+            <hr>
+          </div>
+          <br>
+          <div>
+            <p>
+            
+            
+            </p>
+            
+              <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-none d-lg-block col-lg-2 toc-container">
+      
+  <div id="toc">
+    <p class="h4"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+    <div id="tocbot"></div>
+  </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- custom -->
+
+
+<!-- Comments -->
+<div class="col-lg-7 mx-auto nopadding-md">
+  <div class="container comments mx-auto" id="comments">
+    
+  </div>
+</div>
+
+    
+  </main>
+
+  
+    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
+      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+    <i class="iconfont icon-love"></i>
+    <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+    <br>
+
+    
+  
+    <!-- 不蒜子统计PV -->
+    
+    &nbsp;<span id="busuanzi_container_site_pv">总访问量 
+          <span id="busuanzi_value_site_pv"></span> 次</span>&nbsp;
+  
+  
+    <!-- 不蒜子统计UV -->
+    
+    &nbsp;<span id="busuanzi_container_site_uv">总访客数 
+            <span id="busuanzi_value_site_uv"></span> 人</span>&nbsp;
+  
+  <br>
+
+
+
+    
+
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script src="/lib/jquery/jquery.min.js" ></script>
+<script src="/lib/popper/popper.min.js" ></script>
+<script src="/lib/bootstrap/js/bootstrap.min.js" ></script>
+<script src="/lib/mdbootstrap/js/mdb.min.js" ></script>
+<script src="/js/main.js" ></script>
+
+
+  <script src="/js/lazyload.js" ></script>
+
+
+
+  
+    <script src="/lib/tocbot/tocbot.min.js" ></script>
+  
+  <script src="/js/post.js" ></script>
+
+
+
+  <script src="/lib/smooth-scroll/smooth-scroll.min.js" ></script>
+
+
+
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+<!-- Plugins -->
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+  <script src="/lib/prettify/prettify.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      $('pre').addClass('prettyprint  linenums');
+      prettyPrint();
+    })
+  </script>
+
+
+
+  <script src="/lib/typed/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "十大排序算法&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script src="/lib/anchor/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "false",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      getSearchFile(path);
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script src="/lib/fancybox/jquery.fancybox.min.js" ></script>
+  <script>
+    $("#post img:not(.no-zoom img, img[no-zoom])").each(
+      function () {
+        var element = document.createElement("a");
+        $(element).attr("data-fancybox", "images");
+        $(element).attr("href", $(this).attr("src"));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+</body>
+</html>
